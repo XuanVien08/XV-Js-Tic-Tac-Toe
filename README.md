@@ -57,4 +57,4 @@ G --> I(Click replay)
 I --> J(Reset game)
 ```
 
-Happy Coding! 💪
+Coding! 💪
