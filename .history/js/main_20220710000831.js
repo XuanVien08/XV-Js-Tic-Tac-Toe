@@ -6,6 +6,11 @@ import {
   getCellElementAtIdx,
 } from "./selectors.js";
 
+// console.log(getCellElementList());
+// console.log(getCurrentTurnElement());
+// console.log(getGameStatusElement());
+// console.log(getCellElementAtIdx(4));
+
 /**
  * Global variables
  */
@@ -13,26 +18,14 @@ let currentTurn = TURN.CROSS;
 let isGameEnded = false;
 let cellValues = new Array(9).fill("");
 
-function toggleTurn() {
-  currentTurn = currentTurn === TURN.CIRCLE ? TURN.CROSS : TURN.CIRCLE;
-
-  const currentTurnElement = getCurrentTurnElement();
-  if (currentTurnElement) {
-    currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
-    currentTurnElement.classList.add(currentTurn);
-  }
-}
+function toggleTurn() {}
 
 function handleCellClick(cell, index) {
-  const isClick =
-    cell.classList.contains(TURN.CIRCLE) || cell.classList.contains(TURN.CROSS);
-  if (isClick) return;
-
   // console.log("click", cell, index);
   //** set selected cell */
   cell.classList.add(currentTurn);
   //** toggle turn*/
-  toggleTurn();
+  currentTurn = toggleTurn();
 }
 
 function initCellElementList() {
